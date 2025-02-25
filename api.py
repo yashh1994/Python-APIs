@@ -78,55 +78,80 @@ def default():
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LeetCode Extension API</title>
         <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+            
+            * {
                 margin: 0;
                 padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'Poppins', sans-serif;
+                background: linear-gradient(135deg, #1e3c72, #2a5298);
+                height: 100vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 100vh;
-            }
-            .container {
                 text-align: center;
-                background: #fff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             }
+            
+            .container {
+                background: rgba(255, 255, 255, 0.15);
+                padding: 40px;
+                border-radius: 12px;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                max-width: 500px;
+                color: white;
+            }
+            
             h1 {
-                color: #333;
+                font-size: 28px;
+                font-weight: 600;
+                margin-bottom: 15px;
             }
+            
             p {
-                color: #666;
+                font-size: 16px;
+                color: #dcdcdc;
             }
+            
             .button {
                 display: inline-block;
-                padding: 10px 20px;
                 margin-top: 20px;
+                padding: 12px 24px;
                 font-size: 16px;
-                color: #fff;
-                background-color: #007bff;
+                color: white;
+                background: #ff7b00;
                 border: none;
-                border-radius: 5px;
+                border-radius: 8px;
                 text-decoration: none;
-                cursor: pointer;
+                font-weight: bold;
+                transition: 0.3s ease;
             }
+            
             .button:hover {
-                background-color: #0056b3;
+                background: #ff5500;
+                transform: scale(1.05);
+            }
+
+            .emoji {
+                font-size: 28px;
             }
         </style>
     </head>
     <body>
         <div class="container">
-            <h1>Welcome to the LeetCode Extension API!</h1>
-            <p>Check the time complexity of your code and enhance your LeetCode solution files with ease.</p>
-            <a href="https://github.com/your-github-page" class="button">Get the Extension</a>
+            <div class="emoji">🚀</div>
+            <h1>Welcome to LeetCode Extension API!</h1>
+            <p>Analyze time complexity and improve your code instantly! 🧠💡</p>
+            <a href="https://github.com/yashh1994/Time-Complexity-Extension" class="button">Get the Extension</a>
         </div>
     </body>
     </html>
     '''
+
 
 if __name__ == '__main__':
     port = int(os.getenv("PORT", 5000)) 
