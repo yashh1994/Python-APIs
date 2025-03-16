@@ -50,17 +50,41 @@ def improve_code():
     data = request.json
     fileContent = data.get('code', '')
 
-    prompt = [
-        """
-    You are an expert LeetCode solution writer and code commentator. Please enhance and complete the provided LeetCode solution file. Your task is to:
-        1.  Add Intuition: ...
-        2.  Add Approach: ...
-        3.  Add Complexity Analysis: ...
-        4.  Enhance the Code Section: ...
-        5.  Use Emojis and make it actractive: ...
-        6.  Explanation of Code and Maintain the Structure: ...
-"""
+    prompt = [ """
+    Generate a **detailed and well-structured LeetCode solution file** for the problem **"Minimum Time to Repair Cars"** using the provided Python code.
+
+    ### **Requirements:**
+
+    1. **Rich Formatting & Sections:**
+    - Use **Markdown-style headers** (`#`, `##`, `###`) to structure different sections.
+    - Add **emojis** to make the explanation engaging.
+
+    2. **Content Requirements:**
+    - **Problem Statement** 📜: Clearly describe the problem with input/output examples.
+    - **Intuition** 🤔: Explain the thought process behind solving the problem.
+    - **Approach** 💡: Break down the steps of the solution in a structured manner.
+    - **Time & Space Complexity Analysis** ⏱️: Clearly state and justify the complexity.
+    - **Helper Function Breakdown** ⚙️: Explain the purpose of `can_be_done()`.
+    - **Code Explanation** 📝: Add inline comments to explain each part of the code.
+
+    3. **Code Requirements:**
+    - Format the code properly using syntax highlighting.
+    - Maintain readability with meaningful variable names.
+    - Ensure correct implementation of **Binary Search**.
+
+    4. **Example Output & Edge Cases:**
+    - Include at least **two example cases** to showcase how the function works.
+    - Explain why the output is correct.
+
+    ---
+
+    ### **Code to Format:**
+    ```language
+    GIVEN CODE
+    """
     ]
+
+    
     question = f"""Here is the LeetCode solution file:
     \n\n\n{fileContent}
     """

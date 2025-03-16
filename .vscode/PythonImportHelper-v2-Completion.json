@@ -1,0 +1,235 @@
+[
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "google.generativeai",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "google.generativeai",
+        "description": "google.generativeai",
+        "detail": "google.generativeai",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "get_gemini_response",
+        "kind": 2,
+        "importPath": "api",
+        "description": "api",
+        "peekOfCode": "def get_gemini_response(question, prompt):\n    model = genai.GenerativeModel('gemini-1.5-pro-001')\n    response = model.generate_content([prompt[0], question])\n    print(\"This is the response from the model: \", response._result.candidates[0].content.parts[0].text)\n    return response.text\n@app.route('/analyze', methods=['POST'])\ndef analyze_code():\n    data = request.json\n    code = data.get('code', '')\n    prompt = [",
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_code",
+        "kind": 2,
+        "importPath": "api",
+        "description": "api",
+        "peekOfCode": "def analyze_code():\n    data = request.json\n    code = data.get('code', '')\n    prompt = [\n        \"\"\"Analyze the following code snippet and provide its time and space complexity in Big O notation.  Present your answer in exactly two lines:\nTime Complexity: [Time Complexity in Big O notation, e.g., O(n), O(log n), O(n^2)]\nSpace Complexity: [Space Complexity in Big O notation, e.g., O(1), O(n), O(n^2)]\"\"\"\n    ]\n    question = f\"\"\"\n    Analyze the time and space complexity of the following code:",
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "improve_code",
+        "kind": 2,
+        "importPath": "api",
+        "description": "api",
+        "peekOfCode": "def improve_code():\n    data = request.json\n    fileContent = data.get('code', '')\n    prompt = [ \"\"\"\n    Generate a **detailed and well-structured LeetCode solution file** for the problem **\"Minimum Time to Repair Cars\"** using the provided Python code.\n    ### **Requirements:**\n    1. **Rich Formatting & Sections:**\n    - Use **Markdown-style headers** (`#`, `##`, `###`) to structure different sections.\n    - Add **emojis** to make the explanation engaging.\n    2. **Content Requirements:**",
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "default",
+        "kind": 2,
+        "importPath": "api",
+        "description": "api",
+        "peekOfCode": "def default():\n    return '''\n    <!DOCTYPE html>\n    <html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>LeetCode Extension API</title>\n        <style>\n            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');",
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "api",
+        "description": "api",
+        "peekOfCode": "app = Flask(__name__)\n# Load environment variables from a .env file\nload_dotenv('pro.env')\nCORS(app)\nGOOGLE_API_KEY = os.getenv(\"GOOGLE_API_KEY\")\ngenai.configure(api_key=GOOGLE_API_KEY)\ndef get_gemini_response(question, prompt):\n    model = genai.GenerativeModel('gemini-1.5-pro-001')\n    response = model.generate_content([prompt[0], question])\n    print(\"This is the response from the model: \", response._result.candidates[0].content.parts[0].text)",
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "GOOGLE_API_KEY",
+        "kind": 5,
+        "importPath": "api",
+        "description": "api",
+        "peekOfCode": "GOOGLE_API_KEY = os.getenv(\"GOOGLE_API_KEY\")\ngenai.configure(api_key=GOOGLE_API_KEY)\ndef get_gemini_response(question, prompt):\n    model = genai.GenerativeModel('gemini-1.5-pro-001')\n    response = model.generate_content([prompt[0], question])\n    print(\"This is the response from the model: \", response._result.candidates[0].content.parts[0].text)\n    return response.text\n@app.route('/analyze', methods=['POST'])\ndef analyze_code():\n    data = request.json",
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "Solution",
+        "kind": 6,
+        "importPath": "sample",
+        "description": "sample",
+        "peekOfCode": "class Solution:\n    def repairCars(self, ranks: List[int], cars: int) -> int:\n        def can_be_done(mnt,cars):\n            total_can = 0\n            for r in ranks:\n                total_can += int((mnt//r)**0.5)\n            return total_can >= cars\n        l, r = 0, min(ranks) * (cars ** 2)\n        ans = 0\n        while r>=l:",
+        "detail": "sample",
+        "documentation": {}
+    },
+    {
+        "label": "get_gemini_response",
+        "kind": 2,
+        "importPath": "sample",
+        "description": "sample",
+        "peekOfCode": "def get_gemini_response(question, prompt):\n    model = genai.GenerativeModel('gemini-1.5-pro-001')\n    response = model.generate_content([prompt[0], question])\n    print(\"This is the response from the model: \", response._result.candidates[0].content.parts[0].text)\n    return response.text\nresponse_text = get_gemini_response(question=question, prompt=prompt)",
+        "detail": "sample",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "sample",
+        "description": "sample",
+        "peekOfCode": "app = Flask(__name__)\n# Load environment variables from a .env file\nload_dotenv('pro.env')\nCORS(app)\nGOOGLE_API_KEY = os.getenv(\"GOOGLE_API_KEY\")\ngenai.configure(api_key=GOOGLE_API_KEY)\nprompt = [ \"\"\"\nGenerate a **detailed and well-structured LeetCode solution file** for the problem **\"Minimum Time to Repair Cars\"** using the provided Python code.\n### **Requirements:**\n1. **Rich Formatting & Sections:**",
+        "detail": "sample",
+        "documentation": {}
+    },
+    {
+        "label": "GOOGLE_API_KEY",
+        "kind": 5,
+        "importPath": "sample",
+        "description": "sample",
+        "peekOfCode": "GOOGLE_API_KEY = os.getenv(\"GOOGLE_API_KEY\")\ngenai.configure(api_key=GOOGLE_API_KEY)\nprompt = [ \"\"\"\nGenerate a **detailed and well-structured LeetCode solution file** for the problem **\"Minimum Time to Repair Cars\"** using the provided Python code.\n### **Requirements:**\n1. **Rich Formatting & Sections:**\n- Use **Markdown-style headers** (`#`, `##`, `###`) to structure different sections.\n- Add **emojis** to make the explanation engaging.\n2. **Content Requirements:**\n- **Problem Statement** 📜: Clearly describe the problem with input/output examples.",
+        "detail": "sample",
+        "documentation": {}
+    },
+    {
+        "label": "prompt",
+        "kind": 5,
+        "importPath": "sample",
+        "description": "sample",
+        "peekOfCode": "prompt = [ \"\"\"\nGenerate a **detailed and well-structured LeetCode solution file** for the problem **\"Minimum Time to Repair Cars\"** using the provided Python code.\n### **Requirements:**\n1. **Rich Formatting & Sections:**\n- Use **Markdown-style headers** (`#`, `##`, `###`) to structure different sections.\n- Add **emojis** to make the explanation engaging.\n2. **Content Requirements:**\n- **Problem Statement** 📜: Clearly describe the problem with input/output examples.\n- **Intuition** 🤔: Explain the thought process behind solving the problem.\n- **Approach** 💡: Break down the steps of the solution in a structured manner.",
+        "detail": "sample",
+        "documentation": {}
+    },
+    {
+        "label": "fileContent",
+        "kind": 5,
+        "importPath": "sample",
+        "description": "sample",
+        "peekOfCode": "fileContent = \"\"\"\n__import__(\"atexit\").register(lambda: open(\"display_runtime.txt\", \"w\").write(\"0\"))\nclass Solution:\n    def repairCars(self, ranks: List[int], cars: int) -> int:\n        def can_be_done(mnt,cars):\n            total_can = 0\n            for r in ranks:\n                total_can += int((mnt//r)**0.5)\n            return total_can >= cars\n        l, r = 0, min(ranks) * (cars ** 2)",
+        "detail": "sample",
+        "documentation": {}
+    },
+    {
+        "label": "question",
+        "kind": 5,
+        "importPath": "sample",
+        "description": "sample",
+        "peekOfCode": "question = f\"\"\"Here is the LeetCode solution file:\n\\n\\n\\n{fileContent}\n\"\"\"\ndef get_gemini_response(question, prompt):\n    model = genai.GenerativeModel('gemini-1.5-pro-001')\n    response = model.generate_content([prompt[0], question])\n    print(\"This is the response from the model: \", response._result.candidates[0].content.parts[0].text)\n    return response.text\nresponse_text = get_gemini_response(question=question, prompt=prompt)",
+        "detail": "sample",
+        "documentation": {}
+    },
+    {
+        "label": "response_text",
+        "kind": 5,
+        "importPath": "sample",
+        "description": "sample",
+        "peekOfCode": "response_text = get_gemini_response(question=question, prompt=prompt)",
+        "detail": "sample",
+        "documentation": {}
+    }
+]
