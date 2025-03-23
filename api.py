@@ -22,7 +22,6 @@ def get_gemini_response(question, prompt):
 def analyze_code():
     data = request.json
     code = data.get('code', '')
-
     prompt = [
         """Analyze the following code snippet and provide its time and space complexity in Big O notation.  Present your answer in exactly two lines:
 
@@ -49,7 +48,7 @@ Space Complexity: [Space Complexity in Big O notation, e.g., O(1), O(n), O(n^2)]
 def improve_code():
     data = request.json
     fileContent = data.get('code', '')
-
+    number = data.get('number', '')
     prompt = [ """
     Generate a **detailed and well-structured LeetCode solution file** for the problem **"Minimum Time to Repair Cars"** using the provided Python code.
 
@@ -85,7 +84,9 @@ def improve_code():
     ]
 
     
-    question = f"""Here is the LeetCode solution file:
+    question = f"""
+    For the Leetcode Question Number: {number}\n
+    Here is the LeetCode solution file:
     \n\n\n{fileContent}
     """
     
