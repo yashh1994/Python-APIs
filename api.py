@@ -49,47 +49,42 @@ def improve_code():
     data = request.json
     fileContent = data.get('code', '')
     number = data.get('number', '')
-    prompt = [ """
-    Generate a **detailed and well-structured LeetCode solution file** for the problem **"Minimum Time to Repair Cars"** using the provided Python code.
+
+    prompt = f"""
+    Generate a **detailed and well-structured LeetCode solution file** for the problem **LeetCode {number}** using the provided Python code.
 
     ### **Requirements:**
-
     1. **Rich Formatting & Sections:**
-    - Use **Markdown-style headers** (`#`, `##`, `###`) to structure different sections.
-    - Add **emojis** to make the explanation engaging.
+       - Use **Markdown-style headers** (`#`, `##`, `###`) to structure different sections.
+       - Add **emojis** to make the explanation engaging.
 
     2. **Content Requirements:**
-    - **Problem Statement** 📜: Clearly describe the problem with input/output examples.
-    - **Intuition** 🤔: Explain the thought process behind solving the problem.
-    - **Approach** 💡: Break down the steps of the solution in a structured manner.
-    - **Time & Space Complexity Analysis** ⏱️: Clearly state and justify the complexity.
-    - **Helper Function Breakdown** ⚙️: Explain the purpose of `can_be_done()`.
-    - **Code Explanation** 📝: Add inline comments to explain each part of the code.
+       - **Problem Statement** 📜: Clearly describe the problem with input/output examples.
+       - **Intuition** 🤔: Explain the thought process behind solving the problem.
+       - **Approach** 💡: Break down the steps of the solution in a structured manner.
+       - **Time & Space Complexity Analysis** ⏱️: Clearly state and justify the complexity.
+       - **Helper Function Breakdown** ⚙️: Explain the purpose of helper functions.
+       - **Code Explanation** 📝: Add inline comments to explain each part of the code.
 
     3. **Code Requirements:**
-    - Format the code properly using syntax highlighting.
-    - Maintain readability with meaningful variable names.
-    - Ensure correct implementation of **Binary Search**.
+       - Format the code properly using syntax highlighting.
+       - Maintain readability with meaningful variable names.
+       - Ensure correct implementation of appropriate algorithms.
 
     4. **Example Output & Edge Cases:**
-    - Include at least **two example cases** to showcase how the function works.
-    - Explain why the output is correct.
+       - Include at least **two example cases** to showcase how the function works.
+       - Explain why the output is correct.
 
     ---
 
     ### **Code to Format:**
-    ```language
-    GIVEN CODE
+    ```python
+    {fileContent}
+    ```
     """
-    ]
 
-    
-    question = f"""
-    For the Leetcode Question Number: {number}\n
-    Here is the LeetCode solution file:
-    \n\n\n{fileContent}
-    """
-    
+    question = f"For the LeetCode Question Number: {number}\nHere is the LeetCode solution file:\n\n{fileContent}"
+
     response_text = get_gemini_response(question=question, prompt=prompt)
     return jsonify({'improved_code': response_text})
 
